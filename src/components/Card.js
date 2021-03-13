@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import data from './../data';
 import List from './List';
 import Button from './Button';
+import Form from './Form';
 
 export default class Card extends Component {
   constructor(props) {
@@ -17,6 +18,16 @@ export default class Card extends Component {
       employer: '',
       favoriteMovies: [],
       idNumber: '',
+      form: {
+        firstName: '',
+        lastName: '',
+        city: '',
+        country: '',
+        jobTitle: '',
+        employer: '',
+        favoriteMovies: [],
+        idNumber: data.length + 1,
+      },
     };
   }
 
@@ -78,28 +89,45 @@ export default class Card extends Component {
       personNumber,
     } = this.state;
     return (
-      <div>
+      <div className="content">
         <div className="card">
-          <h1>
-            {firstName} {lastName}
-          </h1>
-          <p>
-            From: {city}, {country}
-          </p>
-          <p>Job Title: {jobTitle}</p>
-          <p>Employer: {employer}</p>
-          <p>
-            Favorite Movies:
-            <List movies={this.state.favoriteMovies} />
-          </p>
+          <ul>
+            {' '}
+            <li>
+              <h1 className="name">
+                {firstName} {lastName}
+              </h1>
+            </li>
+            <br />
+            <li>
+              <strong>From</strong>: {city}, {country}
+            </li>
+            <li>
+              <strong>Job Title:</strong> {jobTitle}
+            </li>
+            <li>
+              <strong>Employer:</strong> {employer}
+            </li>
+            <br />
+            <li>
+              <strong>Favorite Movies:</strong>
+              <List movies={this.state.favoriteMovies} />
+            </li>
+          </ul>
           <div className="position">
             {personNumber + 1}/{data.length}
           </div>
         </div>
         <footer>
           <Button name="< Previous" func={this.handleMinusOneToPersonNumber} />
+          <div className="changeData">
+            <Button name="Edit" class="blue-button" />
+            <Button name="Delete" class="blue-button" />
+            <Button name="New" class="blue-button" />
+          </div>
           <Button name="Next >" func={this.handleAddOneToPersonNumber} />
         </footer>
+        <Form updateInfo={this.state.form} />
       </div>
     );
   }

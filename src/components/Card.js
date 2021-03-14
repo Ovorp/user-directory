@@ -77,6 +77,11 @@ export default class Card extends Component {
     }
   };
 
+  handleAddNewPerson = (val) => {
+    data.push(val);
+    console.log(data);
+  };
+
   render() {
     const {
       firstName,
@@ -89,7 +94,15 @@ export default class Card extends Component {
     } = this.state;
     return (
       <div className="content">
-        <div className="card">
+        {/* <button
+          onClick={() => {
+            this.handleAddNewPerson('test');
+            console.log('test', data);
+          }}
+        >
+          test
+        </button> */}
+        {/* <div className="card">
           <ul>
             {' '}
             <li>
@@ -116,7 +129,7 @@ export default class Card extends Component {
           <div className="position">
             {personNumber + 1}/{data.length}
           </div>
-        </div>
+        </div> */}
         <footer>
           <Button name="< Previous" func={this.handleMinusOneToPersonNumber} />
           <div className="changeData">
@@ -124,9 +137,12 @@ export default class Card extends Component {
             <Button name="Delete" class="blue-button" />
             <Button name="New" class="blue-button" />
           </div>
-          <Button name="Next >" func={this.handleAddOneToPersonNumber} />
+          <Button name="Next >" />
         </footer>
-        <Form updateInfo={this.state.form} />
+        <Form
+          updateInfo={this.state.form}
+          addNewPerson={this.handleAddNewPerson}
+        />
       </div>
     );
   }

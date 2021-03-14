@@ -78,7 +78,6 @@ export default class Card extends Component {
   };
 
   render() {
-    console.log(this.state);
     const {
       firstName,
       lastName,

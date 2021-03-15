@@ -13,7 +13,7 @@ export default class Form extends Component {
       country: '',
       title: '',
       employer: '',
-      favoriteMovies: null,
+      favoriteMovies: '',
     };
   }
 
@@ -31,7 +31,7 @@ export default class Form extends Component {
       country: '',
       title: '',
       employer: '',
-      favoriteMovies: null,
+      favoriteMovies: '',
     });
   };
 

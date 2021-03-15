@@ -93,7 +93,7 @@ export default class Card extends Component {
       favoriteMovies,
     } = val;
 
-    let movies = !favoriteMovies ? favoriteMovies.split(',') : [' ', ' ', ' '];
+    let movies = favoriteMovies ? favoriteMovies.split(',') : null;
     let newEntry = {
       name: {
         first: firstName,

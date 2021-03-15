@@ -41,6 +41,7 @@ h1 {
 
 .card {
   height: auto;
+  min-height: 340px;
   position: relative;
   margin-top: 60px;
   box-sizing: border-box;

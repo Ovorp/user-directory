@@ -7,13 +7,13 @@ export default class Form extends Component {
     super(props);
 
     this.state = {
-      firstName: null,
-      lastName: null,
-      city: null,
-      country: null,
-      title: null,
-      employer: null,
-      favoriteMovies: [],
+      firstName: '',
+      lastName: '',
+      city: '',
+      country: '',
+      title: '',
+      employer: '',
+      favoriteMovies: null,
     };
   }
 
@@ -25,13 +25,13 @@ export default class Form extends Component {
 
   handleClearState = () => {
     this.setState({
-      firstName: null,
-      lastName: null,
-      city: null,
-      country: null,
-      title: null,
-      employer: null,
-      favoriteMovies: [],
+      firstName: '',
+      lastName: '',
+      city: '',
+      country: '',
+      title: '',
+      employer: '',
+      favoriteMovies: null,
     });
   };
 

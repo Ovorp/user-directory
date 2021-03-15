@@ -100,14 +100,3 @@ button:focus {
   border-radius: 20px;
 }
 
-.form {
-  background-color: var(--white);
-}
-
-input {
-  width: 100%;
-}
-
-form button {
-  color: black;
-}

@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
 import FieldInput from './FieldInput';
+import './../css/form.css';
 
 export default class Form extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      firstName: '',
-      lastName: '',
-      city: '',
-      country: '',
-      title: '',
-      employer: '',
-      favoriteMovie: [],
+      firstName: null,
+      lastName: null,
+      city: null,
+      country: null,
+      title: null,
+      employer: null,
+      favoriteMovies: [],
     };
   }
 
@@ -24,20 +25,19 @@ export default class Form extends Component {
 
   handleClearState = () => {
     this.setState({
-      firstName: '',
-      lastName: '',
-      city: '',
-      country: '',
-      title: '',
-      employer: '',
-      favoriteMovie: [],
+      firstName: null,
+      lastName: null,
+      city: null,
+      country: null,
+      title: null,
+      employer: null,
+      favoriteMovies: [],
     });
   };
 
   render() {
-    console.log(this.state, 'form');
     return (
-      <div className="form">
+      <div className={this.props.classForm === 'true' ? 'form' : 'form hide'}>
         <form>
           <FieldInput
             cat="First Name"
@@ -77,15 +77,16 @@ export default class Form extends Component {
           />
           <FieldInput
             cat="Favorite Movies"
-            fieldName="favoriteMovie"
+            fieldName="favoriteMovies"
             handleUpdateInfo={this.handleUpdateInfo}
-            value={this.state.favoriteMovie}
+            value={this.state.favoriteMovies}
             placeholder="i.e. The Hobbit, Pokemon 2000, Old Yeller"
           />
 
           <button
             onClick={(e) => {
               e.preventDefault();
+              this.props.handleShowForm();
               this.props.addNewPerson(this.state);
               this.handleClearState();
             }}

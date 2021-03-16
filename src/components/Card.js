@@ -121,16 +121,31 @@ export default class Card extends Component {
 
   handleDeleteUser = () => {
     data.splice(this.state.personNumber, 1);
+
     alert(`This User was deleted`);
-    this.setState({
-      firstName: data[this.state.personNumber].name.first,
-      lastName: data[this.state.personNumber].name.last,
-      city: data[this.state.personNumber].city,
-      country: data[this.state.personNumber].country,
-      jobTitle: data[this.state.personNumber].title,
-      employer: data[this.state.personNumber].employer,
-      favoriteMovies: data[this.state.personNumber].favoriteMovies,
-    });
+    if (this.state.personNumber === data.length) {
+      let newNum = this.state.personNumber - 1;
+      this.setState({
+        personNumber: newNum,
+        firstName: data[newNum].name.first,
+        lastName: data[newNum].name.last,
+        city: data[newNum].city,
+        country: data[newNum].country,
+        jobTitle: data[newNum].title,
+        employer: data[newNum].employer,
+        favoriteMovies: data[newNum].favoriteMovies,
+      });
+    } else {
+      this.setState({
+        firstName: data[this.state.personNumber].name.first,
+        lastName: data[this.state.personNumber].name.last,
+        city: data[this.state.personNumber].city,
+        country: data[this.state.personNumber].country,
+        jobTitle: data[this.state.personNumber].title,
+        employer: data[this.state.personNumber].employer,
+        favoriteMovies: data[this.state.personNumber].favoriteMovies,
+      });
+    }
   };
 
   handleShowForm = () => {
@@ -158,7 +173,7 @@ export default class Card extends Component {
   };
 
   render() {
-    console.log(this.state);
+    console.log(this.state.personNumber, data.length);
     const {
       firstName,
       lastName,

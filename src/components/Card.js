@@ -19,8 +19,8 @@ export default class Card extends Component {
       employer: data[0].employer,
       favoriteMovies: data[0].favoriteMovies,
       idNumber: data[0].id,
-      classForm: 'false',
-      classEditForm: 'false',
+      classForm: false,
+      classEditForm: false,
     };
   }
 
@@ -149,26 +149,14 @@ export default class Card extends Component {
   };
 
   handleShowForm = () => {
-    let show = this.state.classForm;
-    if (show === 'false') {
-      show = 'true';
-    } else {
-      show = 'false';
-    }
     this.setState({
-      classForm: show,
+      classForm: !this.state.classForm,
     });
   };
 
   handleShowEditForm = () => {
-    let show = this.state.classEditForm;
-    if (show === 'false') {
-      show = 'true';
-    } else {
-      show = 'false';
-    }
     this.setState({
-      classEditForm: show,
+      classEditForm: !this.state.classEditForm,
     });
   };
 

@@ -37,7 +37,7 @@ export default class Form extends Component {
 
   render() {
     return (
-      <div className={this.props.classForm === 'true' ? 'form' : 'form hide'}>
+      <div className={this.props.classForm ? 'form' : 'form hide'}>
         <form>
           <FieldInput
             cat="First Name"
